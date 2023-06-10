@@ -1,0 +1,33 @@
+{
+	"name": "flarum-lang/utils",
+	"description": "Utilities for Flarum Language Packs.",
+	"type": "library",
+	"homepage": "https://github.com/flarum-lang/utils",
+	"keywords": [
+		"flarum",
+		"locale-utils"
+	],
+	"authors": [
+		{
+			"name": "Robert Korulczyk",
+			"email": "robert@korulczyk.pl",
+			"role": "Developer"
+		}
+	],
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/flarum-lang/utils/issues",
+		"source": "https://github.com/flarum-lang/utils"
+	},
+	"require": {
+		"php": "^7.3 || ^8.0",
+		"flarum/core": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"FlarumLang\\Utils\\": "src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
