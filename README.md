@@ -33,7 +33,7 @@ return [
           'informal' => 'Informal',
           'formal' => 'Formal',
         ],
-        'defaultVariant' =>  'informal',
+        'defaultVariant' => 'informal',
     ]),
 ];
 ```
