@@ -41,6 +41,6 @@ return [
 
 ## Links
 
-- [Packagist](https://packagist.org/packages/larum-lang/utils)
-- [GitHub](https://github.com/larum-lang/utils)
+- [Packagist](https://packagist.org/packages/flarum-lang/utils)
+- [GitHub](https://github.com/flarum-lang/utils)
 - [Discuss](https://discuss.flarum.org/d/27519-the-flarum-language-project)
