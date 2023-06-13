@@ -18,7 +18,7 @@ use Flarum\Extend\LifecycleInterface;
 use Flarum\Extension\Extension;
 use Flarum\Frontend\Assets;
 use Flarum\Frontend\Compiler\Source\SourceCollector;
-use Flarum\Settings\Event\Saving;
+use Flarum\Settings\Event\Saved;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Contracts\Container\Container;
 use InvalidArgumentException;
@@ -66,8 +66,15 @@ class LanguagePackWithVariants implements ExtenderInterface, LifecycleInterface 
 		]);
 		(new LanguagePack("{$this->path}/$variant"))->extend($container, $extension);
 		(new Event())
-			->listen(Saving::class, function (Saving $event) use ($container) {
-				$container->make('flarum.locales')->clearCache();
+			->listen(Saved::class, function (Saved $event) use ($container, $configKey, $extension) {
+				foreach ($event->settings as $setting => $value) {
+					if ($setting === $configKey) {
+						$container->make('flarum.locales')->clearCache();
+						$locale = $extension->composerJsonAttribute('extra.flarum-locale.code');
+						$container->make('flarum.assets.forum')->makeLocaleJs($locale)->flush();
+						$container->make('flarum.assets.admin')->makeLocaleJs($locale)->flush();
+					}
+				}
 			})
 			->extend($container, $extension);
 	}
