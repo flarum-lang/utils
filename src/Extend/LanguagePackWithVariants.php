@@ -47,7 +47,7 @@ class LanguagePackWithVariants implements ExtenderInterface, LifecycleInterface 
 		$this->label = $config['label'] ?? 'Variant';
 	}
 
-	public function extend(Container $container, Extension $extension = null) {
+	public function extend(Container $container, ?Extension $extension = null): void {
 		if ($extension === null) {
 			throw new InvalidArgumentException('I need an extension instance to register a language pack.');
 		}
@@ -79,11 +79,11 @@ class LanguagePackWithVariants implements ExtenderInterface, LifecycleInterface 
 			->extend($container, $extension);
 	}
 
-	public function onEnable(Container $container, Extension $extension) {
+	public function onEnable(Container $container, Extension $extension): void {
 		$container->make('flarum.locales')->clearCache();
 	}
 
-	public function onDisable(Container $container, Extension $extension) {
+	public function onDisable(Container $container, Extension $extension): void {
 		$container->make('flarum.locales')->clearCache();
 	}
 

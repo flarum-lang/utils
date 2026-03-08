@@ -10,5 +10,5 @@
 import app from 'flarum/admin/app';
 
 app.initializers.add(PLACEHOLDER_INITIALIZER_ID, () => {
-	app.extensionData.for(PLACEHOLDER_EXTENSION_ID).registerSetting(PLACEHOLDER_SETTINGS);
+	app.registry.for(PLACEHOLDER_EXTENSION_ID).registerSetting(PLACEHOLDER_SETTINGS);
 });
